@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Практична робота №4 — Блок відгуків</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Підключення скрипта в head з атрибутом defer -->
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <!-- Прогрес-бар скролу (BOM & DOM) -->
+    <div id="scrollProgress" class="scroll-progress"></div>
+
+    <header class="header">
+        <div class="container header-content">
+            <h1>Блок відгуків та обговорень</h1>
+            <div class="header-controls">
+                <button id="themeToggleBtn" class="btn btn-secondary">
+                    <span class="theme-icon">🌙</span> Темна тема
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Інформаційна панель BOM -->
+        <section class="info-bar">
+            <span>Ширина екрана (BOM): <strong id="windowWidthVal">-</strong> px</span>
+            <span>Статус сторінки: <strong id="bomStatus">Готово</strong></span>
+        </section>
+
+        <!-- Форма додавання коментаря -->
+        <section class="card form-section">
+            <h2>Залишити відгук</h2>
+            <form id="commentForm" novalidate>
+                <div class="form-group">
+                    <label for="authorInput">Ваше ім'я:</label>
+                    <input type="text" id="authorInput" placeholder="Введіть ім'я" required autocomplete="off">
+                    <small class="error-msg" id="authorError"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="textInput">Текст відгуку:</label>
+                    <textarea id="textInput" rows="4" placeholder="Напишіть ваш відгук (макс. 200 символів)" maxlength="200" required></textarea>
+                    <div class="textarea-footer">
+                        <small class="error-msg" id="textError"></small>
+                        <span class="char-counter"><span id="charCount">0</span>/200</span>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Опублікувати</button>
+                    <button type="button" id="resetBtn" class="btn btn-outline">Очистити (Esc)</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Список відгуків -->
+        <section class="comments-section">
+            <div class="comments-header">
+                <h2>Відгуки користувачів</h2>
+                <span class="badge">Всього: <strong id="totalCommentsCount">0</strong></span>
+            </div>
+
+            <div id="commentsContainer" class="comments-list">
+                <!-- Динамічні вузли додаватимуться сюди -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>Практична робота №4 | DOM, BOM & Event Handling</p>
+        </div>
+    </footer>
+</body>
+</html>
